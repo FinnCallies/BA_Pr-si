@@ -76,17 +76,17 @@ Finn Callies
 # OpenSSH
 
 - SSH protocol defined in RFCs
-- successor to RSH protocol
-- OpenSSH implements standard
-- provides a CLI for remote host management
+- Successor to RSH Protocol
+- OpenSSH implements Standard
+- Provides a CLI for Remote Host Management
 
 
 ---
 
 # OpenSSH - Host Authentication
 
-- Host authentication during key exchange
-- Signing of known data 
+- Host Authentication during Key Exchange
+- Signing of Known Data 
 - Signing key is one of the host private keys
 
 
@@ -127,9 +127,49 @@ PK_OK == Public Key OK
 
 ---
 
+# OpenSSH - Host Key Lifecycle
+
+- Read and Parse Host Key from File
+- sshkey_sk Functions 
+- sshkey_shield_private
+- Sign Verify Check
+- __optional__: Parse Public Key from Private Key File
+- accumulate_host_timing_secret
+- SSH Fingerprint Calculation
+
+<!--
+Used for FIDO
+-->
+
+
+---
+
+# OpenSSH - Host Key during KEX
+
+- Private and Public Host Key are loaded from Internal Structure
+- Algorithm Negotiation
+- Hash is generated which authenticates server
+- Signing of calculated Hash
+
+---
+
+# Development - Concept
+
+- Parsing of Private Key
+- Skip Functions Irrelevant for Protected Key
+    - sshkey_sk
+    - sshkey_shield_private
+    - Sign Verify Check
+    - Parse Public from Private
+    - accumulate_host_timing_secret
+- Signature Calculation
+
+
+---
+
 # OpenSSH - Signed Data
 
-| Shared/Agreed Data            | shared / agreed                       |
+| Shared/Agreed Data            | Shared / Agreed                       |
 |-------------------------------|---------------------------------------|
 | client SSH version            | shared during SSH Version Exchange    |
 | server SSH version            | shared during SSH Version Exchange    |
@@ -145,46 +185,6 @@ this data is hashed with SHA512 and then SHA256 and then signed
 
 
 --- 
-
-# OpenSSH - Host Key Lifecycle
-
-- Read and Parse Host Key from File
-- sshkey_sk functions 
-- sshkey_shield_private
-- sign verify check
-- __optional__: parse public key from private key file
-- accumulate_host_timing_secret
-- SSH fingerprint calculation
-
-<!--
-Used for FIDO
--->
-
-
----
-
-# OpenSSH - Host Key during KEX
-
-- Private and Public Host Key are loaded from Internal Structure
-- Host Key Algorithm Negotiation
-- Hash is generated which authenticates server
-- Signing of calculated Hash
-
----
-
-# Development - Concept
-
-- Parsing of Private Key
-- Skip Functions irrelevant for Protected Key
-    - sshkey_sk
-    - sshkey_shield_private
-    - sign verify check
-    - parse public from private
-    - accumulate_host_timing_secret
-- Signature Calculation
-
-
----
 
 # Development - SSH Host Key File Format
 
@@ -225,8 +225,8 @@ Protected Key File Format:
 # Development - Protected Key File Format
 
 Protected Key Object consists of:
-- bitstream of wrapped clear key 
-- wrapping key verification pattern (32 bytes)
+- Bitstream of Wrapped Clear Key 
+- Wrapping Key Verification Pattern (32 Bytes)
 
 Structure: 
 
