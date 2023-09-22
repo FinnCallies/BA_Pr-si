@@ -1,6 +1,6 @@
 ---
 theme: anhembi
-title: "TROLLMAGNIFIER: Detecting State-Sponsored Troll Accounts on Reddit"
+title: "Bachelor Thesis: Protected Host Signing Keys for OpenSSH"
 _class: lead
 paginate: true
 # backgroundColor: #fff
