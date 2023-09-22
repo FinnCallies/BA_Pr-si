@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd $(pwd)
+git init -b main
+git add .
+git commit -m "init" --author="FinnCallies <finn.callies@gmail.com>"
+gh repo create --public --source=. --push
